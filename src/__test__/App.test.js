@@ -1,8 +1,8 @@
 import React from 'react';
-import App from '../components/App'
+import App from 'components/App'
 import { shallow } from 'enzyme'
-import CommentBox from '../components/commentBox'
-import CommentList from '../components/commentList'
+import CommentBox from 'components/commentBox'
+import CommentList from 'components/commentList'
 
 it('ini comment box', ()=> {
 	const wrapped = shallow(<App />)
