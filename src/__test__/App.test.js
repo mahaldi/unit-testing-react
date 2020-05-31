@@ -1,11 +1,10 @@
 import React from 'react';
-import ReactDom from 'react-dom'
 import App from '../components/App'
+import { shallow } from 'enzyme'
+import CommentBox from '../components/commentBox'
 
 it('ini comment box', ()=> {
-	const div = document.createElement('div')
+	const wrapped = shallow(<App />)
 
-	ReactDom.render(<App />, div)
-	expect(div.innerHTML).toContain('CommentBox')
-	ReactDom.unmountComponentAtNode(div)
+	expect(wrapped.find(CommentBox).length).toEqual(1) // find mencari component yang di inginkan balikannya adalah array, makanaya make length lalu toEqual maksudnya adalah expect nya ada 1 component yang muncul
 })
