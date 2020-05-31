@@ -1,6 +1,14 @@
 import React from 'react'
 
 const CommentBox = () => {
-    return <div>adalah CommentBox</div>
+    return (
+			<form>
+				<h4>Add a comment</h4>
+				<textarea />
+				<div>
+					<button>submit comment</button>
+				</div>
+			</form>
+		)
 }
 export default CommentBox
