@@ -3,10 +3,10 @@ import { createStore } from 'redux'
 import reducer from 'reducers/index'
 import React from 'react';
 
-export default (props) => {
+export default ( { children, initialState = {} }) => {
 	return (
-		<Provider store={createStore(reducer, {})}>
-			{props.children}
+		<Provider store={createStore(reducer, initialState)}>
+			{ children }
 		</Provider>
 	)
 }
