@@ -6,6 +6,7 @@ class CommentList extends React.Component {
 		let { comments } = this.props
 		return (
 			<ul>
+				Comment List
 				{comments.map((comment, idx) => {
 					return (
 						<li key={idx}>{comment}</li>
