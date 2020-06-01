@@ -13,10 +13,12 @@ afterEach(()=> { // function helper dari jest yang akan jalan setelah semua test
 })
 
 it('has a text area and button', ()=> {
-
-	console.log(wrapped.find('textarea').length)
-	console.log(wrapped.find('button').length)
-
 	expect(wrapped.find('textarea').length).toEqual(1)
 	expect(wrapped.find('button').length).toEqual(1)
+})
+
+it('user can type in text area', ()=> {
+	wrapped.find('textarea').simulate('change', {
+		target: { value: 'new comment' } // target dan value mengikuti dari balikan event callback onChange
+	}) //menggunakan html event bkn react event(onChange)
 })
