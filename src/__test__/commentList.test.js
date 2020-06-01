@@ -5,10 +5,11 @@ import CommentList from 'components/commentList'
 
 let wrapped
 
+let initialState = {
+	comments: ['comment1', 'commetn2']
+}
+
 beforeEach(()=> {
-	let initialState = {
-		comments: ['comment1', 'commetn2']
-	}
 	wrapped = mount(
 		<Root initialState={initialState}>
 			<CommentList />
@@ -17,5 +18,10 @@ beforeEach(()=> {
 })
 
 it('has one LI per comment', ()=> {
-	console.log(wrapped.find('li').length)
+	expect(wrapped.find('li').length).toEqual(2)
+})
+
+it('shows the text for each comment', ()=> {
+	expect(wrapped.render().text()).toContain(initialState.comments[0])
+	expect(wrapped.render().text()).toContain(initialState.comments[1])
 })
