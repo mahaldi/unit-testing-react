@@ -1,11 +1,16 @@
 import React from 'react'
 import CommentBox from 'components/commentBox'
 import { mount } from 'enzyme';
+import Root from 'root'
 
 let wrapped
 
 beforeEach(()=> {
-	wrapped = mount(<CommentBox />);
+	wrapped = mount(
+		<Root>
+			<CommentBox />
+		</Root>//memerlukan root karna jest akan akses ke provider dari redux makanya perlu di wrap dengan provider yang ada di root
+	);
 })
 
 afterEach(()=> { // function helper dari jest yang akan jalan setelah semua test selesai
