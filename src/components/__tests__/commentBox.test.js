@@ -17,9 +17,9 @@ afterEach(()=> { // function helper dari jest yang akan jalan setelah semua test
 	wrapped.unmount()
 })
 
-it('has a text area and button', ()=> {
+it('has a text area and two button', ()=> {
 	expect(wrapped.find('textarea').length).toEqual(1)
-	expect(wrapped.find('button').length).toEqual(1)
+	expect(wrapped.find('button').length).toEqual(2)
 })
 
 describe('the text area', ()=> { // berguna untuk mengelompokan test, dan akan berbeda dengan yang diluar, ini karna ingin menggunakan before each lagi. tapi tidak ingin mengubah beforeeach yang sudah ada
