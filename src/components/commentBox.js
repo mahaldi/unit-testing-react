@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import * as actions from 'actions'
-
+import requiredAuth from 'components/requiredAuth'
 
 class CommentBox extends React.Component {
 	state = {
@@ -11,16 +11,6 @@ class CommentBox extends React.Component {
 		this.setState({
 			comment: e.target.value
 		})
-	}
-	redirect = () => {
-		if(!this.props.auth)
-			this.props.history.push('/')
-	}
-	componentDidMount() {
-		this.redirect()
-	}
-	componentDidUpdate() {
-		this.redirect()
 	}
 	handleSubmit = (e) => {
 		e.preventDefault()
@@ -50,10 +40,4 @@ class CommentBox extends React.Component {
 	}
 }
 
-const mapStateToProps = (state) => {
-	return {
-		auth: state.auth
-	}
-}
-
-export default connect(mapStateToProps, actions)(CommentBox)
+export default connect(null, actions)(requiredAuth(CommentBox))
