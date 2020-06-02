@@ -12,6 +12,16 @@ class CommentBox extends React.Component {
 			comment: e.target.value
 		})
 	}
+	redirect = () => {
+		if(!this.props.auth)
+			this.props.history.push('/')
+	}
+	componentDidMount() {
+		this.redirect()
+	}
+	componentDidUpdate() {
+		this.redirect()
+	}
 	handleSubmit = (e) => {
 		e.preventDefault()
 		console.log(this.state.comment)
@@ -39,4 +49,11 @@ class CommentBox extends React.Component {
 		)
 	}
 }
-export default connect(null, actions)(CommentBox)
+
+const mapStateToProps = (state) => {
+	return {
+		auth: state.auth
+	}
+}
+
+export default connect(mapStateToProps, actions)(CommentBox)
